@@ -1,0 +1,55 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "jest": true
+    },
+    "extends": [
+        "plugin:react/recommended",
+        "airbnb",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:prettier/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "@typescript-eslint",
+        "prettier"
+    ],
+    "rules": {
+        "react/react-in-jsx-scope": "off",
+        "react/function-component-definition": "off",
+        "react/jsx-filename-extension": "off",
+        "react/jsx-no-bind": "off",
+        "react/prop-types": "off",
+        "import/no-unresolved": "error",
+        "prettier/prettier": "error",
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "@typescript-eslint/no-explicit-any": "off",
+        "react/jsx-no-literals": "off",
+        "react/display-name": "off",
+        "react/jsx-max-depth": "off",
+        "import/extensions": [
+            "error",
+            "ignorePackages",
+            {
+              "js": "never",
+              "jsx": "never",
+              "ts": "never",
+              "tsx": "never"
+            }
+         ]
+      },
+      "settings": {
+        "import/resolver": {
+          "typescript": {}
+        }
+      }
+}
