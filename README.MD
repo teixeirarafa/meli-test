@@ -25,20 +25,20 @@ O aplicativo consiste em três componentes principais: a caixa de pesquisa, a ex
 
 # :desktop_computer: Instalação e Execução
 
-**Antes de iniciar, é necessário ter o [NodeJs](https://nodejs.org/en/) e o [Yarn](https://yarnpkg.com/) baixado na máquina, bem como o aplicativo [Expo](https://expo.io/) no celular para a aplicação mobile**
+**Antes de iniciar, é necessário ter o [NodeJs](https://nodejs.org/en/) e o [Yarn](https://yarnpkg.com/) baixado na máquina.**
 
 ## Comando para clonar o repositório:
 
 ```bash
   #Para clonar o projeto
-  git clone https://github.com/ArthurPMachado/ProjetoHappy.git
+  git clone https://github.com/teixeirarafa/meli-test.git
 ```
 
 ## Para rodar a parte do servidor:
 
 ```bash
   #Navegar e baixar as depêndencias
-  cd server
+  cd backend
   yarn install
 
   #Iniciar o servidor com yarn
@@ -49,7 +49,7 @@ O aplicativo consiste em três componentes principais: a caixa de pesquisa, a ex
 
 ```bash
   #Navegar e baixar as depêndencias web
-  cd backend
+  cd web
   yarn install
 
   #Iniciar a aplicação
