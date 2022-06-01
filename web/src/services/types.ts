@@ -8,10 +8,9 @@ export interface ItemsInterface {
   title: string;
   picture: string;
   condition: string;
-  address: string;
   free_shipping: boolean;
+  address?: string;
   price: {
-    symbol: string;
     currency: string;
     amount: number;
     decimals: number;
@@ -24,18 +23,8 @@ export interface SearchResults {
   author: AuthorInterface;
 }
 
-export interface ItemInterface extends ItemsInterface {
+export interface DetailInterface extends ItemsInterface {
+  author: AuthorInterface;
   description: string;
   sold_quantity: number;
-}
-
-export interface ItemsState extends SearchResults {
-  loading: boolean;
-  error: boolean;
-  errorDetails?: {
-    message?: string;
-    statusCode?: number;
-  };
-  selectedItem?: ItemInterface;
-  searchQuery: string;
 }
