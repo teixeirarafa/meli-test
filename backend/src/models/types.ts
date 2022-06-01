@@ -22,18 +22,8 @@ export default class SearchResults {
   author: AuthorInterface;
 }
 
-export interface ItemInterface extends ItemsInterface {
+export interface DetailInterface extends ItemsInterface {
+  author: AuthorInterface;
   description: string;
   sold_quantity: number;
-}
-
-export interface ItemsState extends SearchResults {
-  loading: boolean;
-  error: boolean;
-  errorDetails?: {
-    message?: string;
-    statusCode?: number;
-  };
-  selectedItem?: ItemInterface;
-  searchQuery: string;
 }
