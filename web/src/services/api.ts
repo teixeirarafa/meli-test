@@ -1,24 +1,17 @@
 import axios, { AxiosResponse } from "axios";
-import { SearchResults, ItemInterface } from "./types";
+import { ItemInterface } from "./types";
 
 interface Response<T> {
   statusCode: number;
   body: T;
 }
 
-const api = axios.create({
-  baseURL: "https://api.mercadolibre.com",
+export const api = axios.create({
+  baseURL: "http://localhost:3001/api/",
 });
 
-export const searchItems = async (query: string): Promise<SearchResults> => {
-  const response: AxiosResponse = await api.get(`sites/MLA/search?q=${query}`);
-
-  const { body }: Response<SearchResults> = response.data;
-  return body;
-};
-
-export const findItem = async (itemId: string): Promise<ItemInterface> => {
-  const response: AxiosResponse = await api.get(`/items/${itemId}`);
+export const findItem = async (id: string): Promise<ItemInterface> => {
+  const response: AxiosResponse = await api.get(`items/${id}`);
 
   const { body }: Response<ItemInterface> = response.data;
 

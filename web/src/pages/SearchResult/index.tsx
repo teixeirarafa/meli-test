@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { searchItems } from "../../services/api";
+
+import { api } from "../../services/api";
 import Header from "../../components/Header";
 import { SearchResults } from "../../services/types";
+import ProductsList from "../../components/ProductsList";
+import ErrorBox from "../../components/ErrorBox";
 
 let search: string;
 
@@ -12,23 +15,27 @@ const SearchResult: React.FC = () => {
 
   useEffect(() => {
     if (typeof search !== "string") return;
-    searchItems(search).then((response) => {
-      setProducts(response);
+    api.get(`items?Q=${search}`).then((response) => {
+      setProducts(response.data);
     });
   }, [search]);
 
   function onSearchSubmit(query: string) {
     console.log("SearchResult", query);
   }
+
+  if (!products) {
+    return <p>Carregando...</p>;
+  }
+
   return (
     <>
       <Header onSearchSubmit={onSearchSubmit} searchText={search} />
-      <h1>SearchResult</h1>
-      {products
-        ? products?.items.map((product) => {
-            return <p>{product.title}</p>;
-          })
-        : console.log("error")}
+      {products?.items.length ? (
+        <ProductsList products={products?.items} />
+      ) : (
+        <ErrorBox description="" title="¡Perdon!" />
+      )}
     </>
   );
 };
