@@ -9,6 +9,7 @@ export interface ItemsInterface {
   picture: string;
   condition: string;
   free_shipping: boolean;
+  address?: string;
   price: {
     currency: string;
     amount: number;

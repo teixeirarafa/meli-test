@@ -42,6 +42,7 @@ function setSearchResult(data: any){
             picture: val.thumbnail,
             condition: val.condition,
             free_shipping: val.shipping.free_shipping,
+            address: val.address.state_name,
         };
     });
 
