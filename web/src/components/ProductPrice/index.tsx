@@ -6,9 +6,9 @@ import LowShippingIcon from "../../assets/icons/ic_shipping.png";
 import "./product-price.styles.scss";
 
 export interface ProductPriceProps {
-  symbolCurrency?: string;
+  symbolCurrency: string;
   value: number | string;
-  hideShippingIcon?: boolean;
+  hideShippingIcon: boolean;
 }
 
 const ProductPrice: React.FC<ProductPriceProps> = ({

@@ -1,16 +1,17 @@
+/* eslint-disable react/require-default-props */
 import React from "react";
 import ProductPrice, { ProductPriceProps } from "../ProductPrice";
 
 import "./product-informations.styles.scss";
 
 interface Props {
-  className?: string;
   name: string;
   condition?: string;
   hideLocation?: boolean;
   sales?: number;
   address?: string;
   size?: "default" | "medium";
+  children?: any;
 }
 
 export type ProductInformationsProps = ProductPriceProps & Props;
@@ -22,7 +23,7 @@ const ProductInformations: React.FC<ProductInformationsProps> = ({
   name,
   condition,
   sales,
-  // children,
+  children,
   address,
   hideLocation = false,
   size = "default",
@@ -49,7 +50,7 @@ const ProductInformations: React.FC<ProductInformationsProps> = ({
         {!hideLocation && <p className="product__location">{address}</p>}
       </div>
       <h1 className="product__name margin-top--16">{name}</h1>
-      {/* {children} */}
+      {children}
     </section>
   );
 };
