@@ -1,4 +1,4 @@
-import { DetailInterface } from './../models/types';
+import { DetailInterface, Category } from './../models/types';
 import { AxiosResponse } from 'axios';
 import axios from 'axios';
 
@@ -30,6 +30,9 @@ export default{
 
 function setSearchResult(data: any){
     const items = data.results.slice(0,4);
+    const categories: Category[] = data.available_filters[0].values;
+    categories.sort((a,b) => b.results - a.results);
+
     let itemsResult: ItemsInterface[] = Object.values(items).map((val: any) => {
         return {
             id: val.id,
@@ -48,7 +51,7 @@ function setSearchResult(data: any){
 
     const searchResults: SearchResults = {
         author: {name: 'Rafael', lastname: 'Silva'},
-        categories: [],
+        categories,
         items: itemsResult,
     };
 
