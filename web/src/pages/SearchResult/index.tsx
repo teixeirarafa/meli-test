@@ -7,11 +7,12 @@ import { Category, SearchResults } from "../../services/types";
 import ProductsList from "../../components/ProductsList";
 import ErrorBox from "../../components/ErrorBox";
 import NavigationBreadcrumb from "../../components/NavigationBreadcrumb";
+import Loader from "../../components/Loader";
 
 let search: string;
 
 const SearchResult: React.FC = () => {
-  search = useLocation().search.substring(8);
+  search = decodeURI(useLocation().search.substring(8));
   const [products, setProducts] = useState<SearchResults>();
 
   function onSearchSubmit(query: string) {
@@ -31,7 +32,7 @@ const SearchResult: React.FC = () => {
   }, [search]);
 
   if (!products) {
-    return <p>Carregando...</p>;
+    return <Loader />;
   }
 
   return (
