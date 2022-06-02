@@ -21,7 +21,8 @@
     "plugins": [
         "react",
         "@typescript-eslint",
-        "prettier"
+        "prettier",
+        "jest-dom"
     ],
     "rules": {
         "react/react-in-jsx-scope": "off",
@@ -45,8 +46,12 @@
               "ts": "never",
               "tsx": "never"
             }
-         ]
-      },
+        ],
+        "jest-dom/prefer-checked": "error",
+        "jest-dom/prefer-enabled-disabled": "error",
+        "jest-dom/prefer-required": "error",
+        "jest-dom/prefer-to-have-attribute": "error"
+    },
       "settings": {
         "import/resolver": {
           "typescript": {}
