@@ -26,7 +26,7 @@ const DesiredProduct: React.FC<DesiredProductProps> = ({
   symbolCurrency,
   picture,
 }) => (
-  <div className="desired-product margin--32">
+  <div className="desired-product">
     <ProductPicture alt={name} large src={picture} />
     <ProductInformations
       condition={condition}
