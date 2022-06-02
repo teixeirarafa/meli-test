@@ -25,7 +25,7 @@ O aplicativo consiste em três componentes principais: a caixa de pesquisa, a ex
 
 # :desktop_computer: Instalação e Execução
 
-**Antes de iniciar, é necessário ter o [NodeJs](https://nodejs.org/en/) e o [Yarn](https://yarnpkg.com/) baixado na máquina.**
+**Antes de iniciar, é necessário ter o [NodeJs](https://nodejs.org/en/) baixado na máquina.**
 
 ## Comando para clonar o repositório:
 
@@ -38,22 +38,24 @@ O aplicativo consiste em três componentes principais: a caixa de pesquisa, a ex
 
 ```bash
   #Navegar e baixar as depêndencias
+  cd meli-test
   cd backend
-  yarn install
+  npm install ou yarn install
 
-  #Iniciar o servidor com yarn
-  yarn start
+  #Iniciar o servidor
+  npm start ou yarn start
 ```
 
 ## Para rodar a aplicação na parte do cliente web:
 
 ```bash
   #Navegar e baixar as depêndencias web
+  cd meli-test
   cd web
-  yarn install
+  npm install ou yarn install
 
   #Iniciar a aplicação
-  yarn start
+  npm start ou yarn start
 ```
 
 # :scroll: Licença
