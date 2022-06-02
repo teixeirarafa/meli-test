@@ -1,18 +1,16 @@
-import React from 'react';
-import { mount } from 'enzyme';
-import { MemoryRouter } from 'react-router-dom';
-import Logo from '..';
+import { render } from "@testing-library/react";
+import React from "react";
+import { MemoryRouter } from "react-router-dom";
+import Logo from "..";
 
-describe('Logo Component', () => {
-  it('should render a logo component', () => {
-    const app = mount(
+describe("Logo Component", () => {
+  it("should render a logo component", () => {
+    const app = render(
       <MemoryRouter>
         <Logo />
       </MemoryRouter>,
     );
 
-   expect(app.find(".logo")).toHaveLength(1);
-   expect(app.find(".logo Link").prop("to")).toBe("/");
-   expect(app.find(".logo Link img")).toHaveLength(1);
+    expect(app).toMatchSnapshot();
   });
 });

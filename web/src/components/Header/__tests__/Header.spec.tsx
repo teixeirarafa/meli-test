@@ -8,14 +8,9 @@ describe("Header Component", () => {
     const app = render(
       <MemoryRouter>
         <Header />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
-    expect(app.getByRole(".nav-header")).toHaveLength(1);
-    expect(app.getByRole(".nav-header .container")).toHaveLength(1);
-    expect(app.getByRole(".nav-header .container Logo")).toHaveLength(1);
-    expect(app.getByRole(".nav-header .container ProductsSearch")).toHaveLength(
-      1
-    );
+    expect(app).toMatchSnapshot();
   });
 });

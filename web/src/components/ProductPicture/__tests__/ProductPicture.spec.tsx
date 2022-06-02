@@ -1,34 +1,17 @@
-import React from 'react';
-import { mount } from 'enzyme';
-import faker from 'faker';
-import ProductPicture from '..';
+import { render } from "@testing-library/react";
+import React from "react";
 
-describe('ProductPicture Component', () => {
-	it('should render ProductPicture with default size', () => {
-		const picture = {
-			src: faker.internet.avatar(),
-			alt: faker.lorem.paragraph()
-		};
+import ProductPicture from "..";
 
-		const app = mount(<ProductPicture {...picture} />);
+describe("ProductPicture Component", () => {
+  it("should render ProductPicture with default size", () => {
+    const picture = {
+      src: "abc",
+      alt: "xyz",
+    };
 
-		expect(app.find('.product__picture')).toHaveLength(1);
-		expect(app.find('.product__picture.product__picture--large')).toHaveLength(0);
-		expect(app.find('.product__picture img')).toHaveLength(1);
-		expect(app.find('.product__picture img').props()).toEqual(picture);
- });
+    const app = render(<ProductPicture {...picture} />);
 
- it('should render ProductPicture with large size', () => {
-		const picture = {
-			src: faker.internet.avatar(),
-			alt: faker.lorem.paragraph()
-		};
-
-		const app = mount(<ProductPicture {...picture} large />);
-
-		expect(app.find('.product__picture')).toHaveLength(1);
-		expect(app.find('.product__picture.product__picture--large')).toHaveLength(1);
-		expect(app.find('.product__picture img')).toHaveLength(1);
-		expect(app.find('.product__picture img').props()).toEqual(picture);
- });
+    expect(app).toMatchSnapshot();
+  });
 });
