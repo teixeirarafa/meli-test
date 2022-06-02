@@ -3,6 +3,11 @@ export interface AuthorInterface {
   lastname: string;
 }
 
+export interface Category {
+  id: string;
+  name: string;
+  results: number;
+}
 export interface ItemsInterface {
   id: string;
   title: string;
@@ -19,7 +24,7 @@ export interface ItemsInterface {
 
 export interface SearchResults {
   items: ItemsInterface[];
-  categories: string[];
+  categories: Category[];
   author: AuthorInterface;
 }
 
