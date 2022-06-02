@@ -9,8 +9,8 @@ import SearchResults, { ItemsInterface } from '../models/types';
 
 export default{
     async search(request: Request, response: Response){
-        const query = request.query.Q;
-        const {data} = await api.get(`sites/MLA/search?q=${query}`);
+        const query = request.query.Q as string;
+        const {data} = await api.get(`sites/MLA/search?q=${decodeURI(query)}`);
         
         return response.json(setSearchResult(data))
     },
@@ -24,7 +24,9 @@ export default{
             const responseDetail = responses[0];
             const responseDescription = responses[1];
             return response.json(setDetailResult(responseDetail, responseDescription))
-        }))
+        })).catch(error => {
+            return response.status(500).json({ message: 'Internal server error' });
+        })
     }
 }
 
